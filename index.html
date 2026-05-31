@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Arrey Godswill — Frontend Developer & CS Finalist. Crafting intuitive, performant interfaces from complex logic." />
+  <title>Arrey Godswill — Frontend Developer</title>
+
+  <!-- Font preconnects -->
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ── Custom Cursor ── -->
+  <div class="cursor-dot"  id="cursor-dot"  aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- =============================================
+       NAVIGATION
+  ============================================= -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Arrey Godswill — home">AG<span>.</span></a>
+
+      <ul class="nav-links" role="list">
+        <li><a class="nav-link" href="#about">   <span class="nav-dot" aria-hidden="true"></span>About</a></li>
+        <li><a class="nav-link" href="#skills">  <span class="nav-dot" aria-hidden="true"></span>Skills</a></li>
+        <li><a class="nav-link" href="#journey"> <span class="nav-dot" aria-hidden="true"></span>Journey</a></li>
+        <li><a class="nav-link" href="#projects"><span class="nav-dot" aria-hidden="true"></span>Projects</a></li>
+        <li><a class="nav-link" href="#contact"> <span class="nav-dot" aria-hidden="true"></span>Contact</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <button class="theme-btn" id="theme-btn" aria-label="Toggle light or dark theme">
+          <svg id="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <line x1="12" y1="2"  x2="12" y2="5"/>  <line x1="12" y1="19" x2="12" y2="22"/>
+            <line x1="4.22" y1="4.22"   x2="6.34" y2="6.34"/>
+            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+            <line x1="2"  y1="12" x2="5"  y2="12"/> <line x1="19" y1="12" x2="22" y2="12"/>
+            <line x1="4.22"  y1="19.78" x2="6.34"  y2="17.66"/>
+            <line x1="17.66" y1="6.34"  x2="19.78" y2="4.22"/>
+          </svg>
+          <svg id="icon-moon" style="display:none" width="18" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#journey">Journey</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- =============================================
+       HERO
+  ============================================= -->
+  <section id="hero" class="hero" aria-label="Introduction">
+
+    <!-- Decorative rotating rings -->
+    <svg class="hero-svg-bg" viewBox="0 0 600 600" fill="none"
+         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g id="hero-ring-a">
+        <circle cx="300" cy="300" r="268" stroke="#00FF41" stroke-width="1" stroke-dasharray="6 10" opacity="0.18"/>
+        <circle cx="300" cy="32"  r="3.5" fill="#00FF41" opacity="0.5"/>
+        <circle cx="532" cy="166" r="3.5" fill="#00FF41" opacity="0.5"/>
+        <circle cx="532" cy="434" r="3.5" fill="#00FF41" opacity="0.5"/>
+        <circle cx="300" cy="568" r="3.5" fill="#00FF41" opacity="0.5"/>
+        <circle cx="68"  cy="434" r="3.5" fill="#00FF41" opacity="0.5"/>
+        <circle cx="68"  cy="166" r="3.5" fill="#00FF41" opacity="0.5"/>
+      </g>
+      <g id="hero-ring-b">
+        <circle cx="300" cy="300" r="190" stroke="#00FF41" stroke-width="0.75" stroke-dasharray="3 14" opacity="0.14"/>
+        <polygon points="300,110 464,200 464,400 300,490 136,400 136,200"
+                 stroke="#00FF41" stroke-width="0.75" fill="none" opacity="0.1"/>
+      </g>
+      <g id="hero-ring-c">
+        <circle cx="300" cy="300" r="110" stroke="#00FF41" stroke-width="1" stroke-dasharray="2 8" opacity="0.22"/>
+      </g>
+      <defs>
+        <filter id="core-glow">
+          <feGaussianBlur stdDeviation="8" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <circle id="hero-core-ring" cx="300" cy="300" r="20" stroke="#00FF41" stroke-width="1" fill="none" opacity="0.4"/>
+      <circle id="hero-core"      cx="300" cy="300" r="8" fill="#00FF41" opacity="0.9"/>
+      <circle cx="300" cy="300" r="8" fill="#00FF41" filter="url(#core-glow)" opacity="0.55"/>
+    </svg>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow" id="hero-eyebrow">
+        <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+        400L &nbsp;•&nbsp; CS &nbsp;•&nbsp; 2025
+      </div>
+
+      <h1 class="hero-name" id="hero-name">Arrey Godswill</h1>
+      <div class="hero-name-underline" id="hero-underline" aria-hidden="true"></div>
+
+      <p class="hero-role"    id="hero-role">Frontend Developer &amp; Computer Science Finalist</p>
+      <p class="hero-tagline" id="hero-tagline">Crafting intuitive, performant interfaces from complex logic.</p>
+
+      <div class="hero-actions" id="hero-actions">
+        <a href="#projects" class="btn-primary">
+          View My Work
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#contact" class="btn-secondary">Get In Touch</a>
+      </div>
+    </div>
+
+    <div class="scroll-hint" id="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-hint-line"></div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- =============================================
+       ABOUT
+  ============================================= -->
+  <section id="about" class="section-wrap" aria-label="About Arrey Godswill">
+    <div class="container">
+      <p class="section-label">01 — About</p>
+      <h2 class="section-title">A little<br/>about me.</h2>
+
+      <div class="about-grid">
+
+        <!-- Avatar -->
+        <div class="about-visual">
+          <div class="avatar-frame">
+            <svg class="avatar-svg" viewBox="0 0 240 280" fill="none"
+                 xmlns="http://www.w3.org/2000/svg" aria-label="Abstract avatar of Arrey Godswill">
+              <circle cx="120" cy="90" r="55" stroke="#00FF41" stroke-width="1.5" class="draw-path"/>
+              <circle cx="103" cy="82" r="5"  stroke="#00FF41" stroke-width="1.5" class="draw-path"/>
+              <circle cx="137" cy="82" r="5"  stroke="#00FF41" stroke-width="1.5" class="draw-path"/>
+              <path d="M96 72 Q103 67 112 70"  stroke="#00FF41" stroke-width="1.5" fill="none" stroke-linecap="round" class="draw-path"/>
+              <path d="M128 70 Q137 67 144 72" stroke="#00FF41" stroke-width="1.5" fill="none" stroke-linecap="round" class="draw-path"/>
+              <path d="M107 105 Q120 118 133 105" stroke="#00FF41" stroke-width="1.5" fill="none" stroke-linecap="round" class="draw-path"/>
+              <path d="M108 144 L108 162 M132 144 L132 162" stroke="#00FF41" stroke-width="1.5" stroke-linecap="round" class="draw-path"/>
+              <path d="M24 264 Q52 188 108 163 Q120 158 132 163 Q188 188 216 264" stroke="#00FF41" stroke-width="1.5" fill="none" stroke-linecap="round" class="draw-path"/>
+              <path d="M108 163 L116 188 L120 194 L124 188 L132 163" stroke="#00FF41" stroke-width="1.5" fill="none" stroke-linecap="round" class="draw-path"/>
+              <path d="M96 222 L86 230 L96 238"  stroke="#00FF41" stroke-width="1.5" fill="none" stroke-linecap="round" class="draw-path"/>
+              <path d="M144 222 L154 230 L144 238" stroke="#00FF41" stroke-width="1.5" fill="none" stroke-linecap="round" class="draw-path"/>
+              <line x1="114" y1="218" x2="126" y2="242" stroke="#00FF41" stroke-width="1.5" stroke-linecap="round" class="draw-path"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="about-text">
+          <p class="section-label">Who I Am</p>
+          <h2 class="section-title" style="font-size:clamp(1.6rem,4vw,2.5rem);">
+            Merging CS theory<br/>with modern craft.
+          </h2>
+          <p class="about-bio" id="bio-1">
+            I'm <strong>Arrey Godswill</strong> — a frontend developer completing my
+            <strong>400-level Computer Science degree</strong>, spending equal time in
+            lecture halls studying algorithms and in code editors building interfaces
+            people enjoy using.
+          </p>
+          <p class="about-bio" id="bio-2">
+            My work sits at the intersection of <strong>rigorous CS thinking</strong> and
+            <strong>polished frontend craft</strong>. I care deeply about performance,
+            accessibility, and the subtle details that separate a good UI from a great one.
+          </p>
+          <p class="about-bio" id="bio-3">
+            Currently in final-year project mode, open to <strong>frontend internships</strong>
+            and <strong>collaborative projects</strong> that push what the web can do.
+          </p>
+          <div class="about-stats" id="about-stats">
+            <div class="stat"><span class="stat-value">400</span><span class="stat-label">CS Level</span></div>
+            <div class="stat"><span class="stat-value">3+</span><span class="stat-label">Years Coding</span></div>
+            <div class="stat"><span class="stat-value">10+</span><span class="stat-label">Projects Built</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="timeline" id="timeline">
+        <p class="section-label" style="margin-bottom:2rem;">My Path</p>
+        <div class="timeline-track">
+          <div class="timeline-line-col">
+            <div class="timeline-dot"></div>
+            <svg class="timeline-svg-line" viewBox="0 0 2 60" preserveAspectRatio="none" aria-hidden="true">
+              <line class="draw-path" x1="1" y1="0" x2="1" y2="60" stroke="#00FF41" stroke-width="1.5"/>
+            </svg>
+            <div class="timeline-dot"></div>
+            <svg class="timeline-svg-line" viewBox="0 0 2 60" preserveAspectRatio="none" aria-hidden="true">
+              <line class="draw-path" x1="1" y1="0" x2="1" y2="60" stroke="#00FF41" stroke-width="1.5"/>
+            </svg>
+            <div class="timeline-dot"></div>
+            <svg class="timeline-svg-line" viewBox="0 0 2 60" preserveAspectRatio="none" aria-hidden="true">
+              <line class="draw-path" x1="1" y1="0" x2="1" y2="60" stroke="#00FF41" stroke-width="1.5"/>
+            </svg>
+            <div class="timeline-dot"></div>
+            <svg class="timeline-svg-line" viewBox="0 0 2 60" preserveAspectRatio="none" aria-hidden="true">
+              <line class="draw-path" x1="1" y1="0" x2="1" y2="60" stroke="#00FF41" stroke-width="1.5"/>
+            </svg>
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-items">
+            <div class="timeline-item"><p class="timeline-year">2021</p><p class="timeline-event">Started Computer Science Degree</p><p class="timeline-detail">Enrolled, fell in love with problem-solving and logic.</p></div>
+            <div class="timeline-item"><p class="timeline-year">2022</p><p class="timeline-event">First Web Project Goes Live</p><p class="timeline-detail">Shipped a real project. Got hooked on frontend development.</p></div>
+            <div class="timeline-item"><p class="timeline-year">2023</p><p class="timeline-event">Deep-Dived into React &amp; Modern Tooling</p><p class="timeline-detail">React, Next.js, Tailwind, GSAP — the whole stack clicked.</p></div>
+            <div class="timeline-item"><p class="timeline-year">2024</p><p class="timeline-event">First Production Application</p><p class="timeline-detail">Built and deployed an app used by real users. Career defining.</p></div>
+            <div class="timeline-item"><p class="timeline-year">2025</p><p class="timeline-event">Final Year &amp; FYP Defense</p><p class="timeline-detail">Defending a real-time collaboration tool. Building the future.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- =============================================
+       SKILLS
+  ============================================= -->
+  <section id="skills" class="section-wrap" aria-label="Skills">
+    <div class="container">
+      <p class="section-label">02 — Skills</p>
+      <h2 class="section-title">What I build<br/>things with.</h2>
+      <p class="section-subtitle">A focused toolkit built for modern frontend — from UI logic to polished production code.</p>
+
+      <div class="skills-grid" id="skills-grid">
+        <!-- HTML5 -->
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 3l1.6 17.3L12 22l6.4-1.7L20 3H4z"/><path d="M16.5 8h-9l.4 4.5h8.2M15.8 17L12 18l-3.8-1-.2-2.5"/>
+            </svg>
+          </div>
+          <div><p class="skill-name">HTML5</p><p class="skill-level-label">Semantic · Accessibility</p></div>
+          <div class="skill-bar-wrap"><div class="skill-bar-fill" data-width="95" aria-label="95% proficiency"></div></div>
+        </div>
+        <!-- CSS3 -->
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 3l1.6 17.3L12 22l6.4-1.7L20 3H4z"/><path d="M16.5 8h-9l.3 4h8.4M16 16.5L12 18l-4-1.5-.3-3"/>
+            </svg>
+          </div>
+          <div><p class="skill-name">CSS3</p><p class="skill-level-label">Grid · Flexbox · Animations</p></div>
+          <div class="skill-bar-wrap"><div class="skill-bar-fill" data-width="92" aria-label="92% proficiency"></div></div>
+        </div>
+        <!-- JavaScript -->
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 17v-5M16 12v3a2 2 0 0 1-4 0"/>
+            </svg>
+          </div>
+          <div><p class="skill-name">JavaScript</p><p class="skill-level-label">ES2024 · DOM · Async</p></div>
+          <div class="skill-bar-wrap"><div class="skill-bar-fill" data-width="88" aria-label="88% proficiency"></div></div>
+        </div>
+        <!-- React -->
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="12" cy="12" r="2"/>
+              <ellipse cx="12" cy="12" rx="10" ry="3.5"/>
+              <ellipse cx="12" cy="12" rx="10" ry="3.5" transform="rotate(60 12 12)"/>
+              <ellipse cx="12" cy="12" rx="10" ry="3.5" transform="rotate(120 12 12)"/>
+            </svg>
+          </div>
+          <div><p class="skill-name">React</p><p class="skill-level-label">Hooks · Context · Perf</p></div>
+          <div class="skill-bar-wrap"><div class="skill-bar-fill" data-width="85" aria-label="85% proficiency"></div></div>
+        </div>
+        <!-- Next.js -->
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/><path d="M8.5 7.5l7 9M14.5 7.5H17v3"/>
+            </svg>
+          </div>
+          <div><p class="skill-name">Next.js</p><p class="skill-level-label">SSR · App Router · API</p></div>
+          <div class="skill-bar-wrap"><div class="skill-bar-fill" data-width="78" aria-label="78% proficiency"></div></div>
+        </div>
+        <!-- Tailwind -->
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M6.5 10c.7-3 2.7-4.5 6-4.5s4 1.7 4.75 4.5c-1.75 0-2.75-.8-3.5-2.5-1 2.5-3 4-6 4-.8 0-1.25 0-1.25-1.5z"/>
+              <path d="M3 16c.7-3 2.7-4.5 6-4.5s4 1.7 4.75 4.5c-1.75 0-2.75-.8-3.5-2.5-1 2.5-3 4-6 4-.8 0-1.25 0-1.25-1.5z"/>
+            </svg>
+          </div>
+          <div><p class="skill-name">Tailwind CSS</p><p class="skill-level-label">Utility · Design Systems</p></div>
+          <div class="skill-bar-wrap"><div class="skill-bar-fill" data-width="90" aria-label="90% proficiency"></div></div>
+        </div>
+        <!-- GSAP -->
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M2 12c2-7 5-7 7-3s4 10 7 9 4-6 6-6"/>
+              <circle cx="2"  cy="12" r="1.5" fill="currentColor" stroke="none"/>
+              <circle cx="22" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <div><p class="skill-name">GSAP</p><p class="skill-level-label">ScrollTrigger · Timelines</p></div>
+          <div class="skill-bar-wrap"><div class="skill-bar-fill" data-width="72" aria-label="72% proficiency"></div></div>
+        </div>
+        <!-- Git -->
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/>
+              <path d="M6 8v8"/><path d="M6 8c0 5 4 6 8 6h2"/>
+            </svg>
+          </div>
+          <div><p class="skill-name">Git</p><p class="skill-level-label">GitHub · Workflows</p></div>
+          <div class="skill-bar-wrap"><div class="skill-bar-fill" data-width="84" aria-label="84% proficiency"></div></div>
+        </div>
+        <!-- REST API -->
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <rect x="2" y="9" width="6" height="6" rx="1"/><rect x="16" y="9" width="6" height="6" rx="1"/>
+              <path d="M8 12h8M14 9.5l3 2.5-3 2.5"/>
+            </svg>
+          </div>
+          <div><p class="skill-name">REST APIs</p><p class="skill-level-label">Fetch · Axios · Integration</p></div>
+          <div class="skill-bar-wrap"><div class="skill-bar-fill" data-width="80" aria-label="80% proficiency"></div></div>
+        </div>
+        <!-- Figma -->
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M8 2h5a3 3 0 0 1 0 6H8V2z"/>
+              <path d="M8 8h5a3 3 0 0 1 0 6H8V8z"/>
+              <path d="M8 14v4a3 3 0 0 0 6 0v-4"/>
+              <circle cx="8" cy="11" r="3"/>
+            </svg>
+          </div>
+          <div><p class="skill-name">Figma</p><p class="skill-level-label">UI Design · Prototyping</p></div>
+          <div class="skill-bar-wrap"><div class="skill-bar-fill" data-width="65" aria-label="65% proficiency"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- =============================================
+       JOURNEY
+  ============================================= -->
+  <section id="journey" class="section-wrap" aria-label="400-Level Journey">
+    <div class="container">
+      <p class="section-label">03 — Journey</p>
+      <h2 class="section-title">The 400-Level<br/>Chronicles.</h2>
+      <p class="section-subtitle">Toggle each statement to confirm it — then read what's really behind the headline.</p>
+
+      <div class="journey-grid" id="journey-grid">
+        <!-- Card 1 -->
+        <div class="journey-card" data-active="false" id="jcard-1">
+          <div class="journey-card-head">
+            <p class="journey-statement">"Successfully defended a final-year project on a real-time collaboration tool."</p>
+            <button class="journey-toggle" aria-label="Mark statement as true">
+              <svg class="icon-q" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+              <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <div class="journey-status"><span class="journey-status-dot" aria-hidden="true"></span><span class="journey-status-text">Tap to confirm</span></div>
+          <div class="journey-expand" aria-live="polite">
+            <div class="journey-expand-inner">
+              <p class="journey-reveal"><span class="accent">Confirmed.</span> Proposed a WebSocket-based collaborative editor using Operational Transformation. The panel asked three hard questions — I had answers for two. The third one kept me awake for a solid week. <span class="accent">Still worth it.</span></p>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="journey-card" data-active="false" id="jcard-2">
+          <div class="journey-card-head">
+            <p class="journey-statement">"Survived 'Algorithms &amp; Complexity' by visualizing NP-hard problems."</p>
+            <button class="journey-toggle" aria-label="Mark statement as true">
+              <svg class="icon-q" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+              <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <div class="journey-status"><span class="journey-status-dot" aria-hidden="true"></span><span class="journey-status-text">Tap to confirm</span></div>
+          <div class="journey-expand" aria-live="polite">
+            <div class="journey-expand-inner">
+              <p class="journey-reveal"><span class="accent">100% real.</span> Built an animated TSP solver using nearest-neighbor heuristics and HTML Canvas. The lecturer said "impressive." My laptop said <span class="accent">94°C thermal throttle.</span> We both survived.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="journey-card" data-active="false" id="jcard-3">
+          <div class="journey-card-head">
+            <p class="journey-statement">"Juggling internship applications, assignments, and side projects."</p>
+            <button class="journey-toggle" aria-label="Mark statement as true">
+              <svg class="icon-q" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+              <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <div class="journey-status"><span class="journey-status-dot" aria-hidden="true"></span><span class="journey-status-text">Tap to confirm</span></div>
+          <div class="journey-expand" aria-live="polite">
+            <div class="journey-expand-inner">
+              <p class="journey-reveal">Current browser tabs: <span class="accent">47.</span> Open applications: 6. Active side projects: 3. Assignments due this week: 2. Hours of sleep last night: enough to function, <span class="accent">not enough to brag about.</span></p>
+            </div>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="journey-card" data-active="false" id="jcard-4">
+          <div class="journey-card-head">
+            <p class="journey-statement">"Voted 'Most Likely to Refactor Everything' by classmates."</p>
+            <button class="journey-toggle" aria-label="Mark statement as true">
+              <svg class="icon-q" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+              <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <div class="journey-status"><span class="journey-status-dot" aria-hidden="true"></span><span class="journey-status-text">Tap to confirm</span></div>
+          <div class="journey-expand" aria-live="polite">
+            <div class="journey-expand-inner">
+              <p class="journey-reveal">I refactored an entire group project the night before submission because one component had 400 lines and zero separation of concerns. My teammates called it <span class="accent">a crime and a blessing simultaneously.</span> I call it a Tuesday.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- =============================================
+       PROJECTS
+  ============================================= -->
+  <section id="projects" class="section-wrap" aria-label="Projects">
+    <div class="container">
+      <p class="section-label">04 — Projects</p>
+      <h2 class="section-title">Selected<br/>work.</h2>
+      <p class="section-subtitle">A handful of things I've built that I'm genuinely proud of. Click any card to see the full story.</p>
+
+      <div class="projects-list" id="projects-list">
+        <!-- Project 1 -->
+        <article class="project-card" id="proj-1">
+          <div>
+            <p class="project-num">Project 01</p>
+            <h3 class="project-title">SyncSpace</h3>
+            <p class="project-desc">A real-time collaborative whiteboard for distributed teams. Live cursor sharing, conflict-free concurrent editing via OT, and persistent session state via WebSockets.</p>
+            <div class="project-tags">
+              <span class="tag">React</span><span class="tag">WebSockets</span>
+              <span class="tag">Canvas API</span><span class="tag">Node.js</span>
+            </div>
+          </div>
+          <div class="project-link-wrap">
+            <a href="#" class="project-link" aria-label="View SyncSpace project details">
+              View Details
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+        <!-- Project 2 -->
+        <article class="project-card" id="proj-2">
+          <div>
+            <p class="project-num">Project 02</p>
+            <h3 class="project-title">Pathfinder</h3>
+            <p class="project-desc">An interactive algorithm visualizer that animates Dijkstra, A*, BFS, and DFS step by step on a live grid. Built to make abstract CS concepts tangible.</p>
+            <div class="project-tags">
+              <span class="tag">Next.js</span><span class="tag">GSAP</span>
+              <span class="tag">Tailwind</span><span class="tag">TypeScript</span>
+            </div>
+          </div>
+          <div class="project-link-wrap">
+            <a href="#" class="project-link" aria-label="View Pathfinder project details">
+              View Details
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+        <!-- Project 3 -->
+        <article class="project-card" id="proj-3">
+          <div>
+            <p class="project-num">Project 03</p>
+            <h3 class="project-title">PulseUI</h3>
+            <p class="project-desc">A minimal, fully accessible React component library built on CSS custom properties. Zero runtime dependencies, complete TypeScript types, and Storybook docs.</p>
+            <div class="project-tags">
+              <span class="tag">React</span><span class="tag">TypeScript</span>
+              <span class="tag">Storybook</span><span class="tag">WCAG 2.1</span>
+            </div>
+          </div>
+          <div class="project-link-wrap">
+            <a href="#" class="project-link" aria-label="View PulseUI project details">
+              View Details
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- =============================================
+       CONTACT
+  ============================================= -->
+  <section id="contact" class="section-wrap contact-section" aria-label="Contact">
+    <div class="container">
+      <p class="section-label" style="justify-content:center;">05 — Contact</p>
+      <h2 class="section-title" style="text-align:center;margin-left:auto;margin-right:auto;">Let's build<br/>something great.</h2>
+      <p class="section-subtitle" style="text-align:center;margin-left:auto;margin-right:auto;">Open to frontend roles, freelance work, and interesting conversations. I reply to every message.</p>
+      <div class="contact-email-wrap">
+        <a href="mailto:godswill@example.com" class="contact-email" aria-label="Email Arrey Godswill">
+          godswill@example.com
+        </a>
+      </div>
+      <div class="social-icons" id="social-icons">
+        <a href="#" class="social-icon" aria-label="GitHub profile" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="#" class="social-icon" aria-label="LinkedIn profile" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="#" class="social-icon" aria-label="Twitter profile" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          Twitter
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <p class="footer-text">
+        <span class="footer-dot" aria-hidden="true"></span>
+        © 2025 Arrey Godswill. Powered by curiosity &amp; green tea.
+      </p>
+      <a href="#hero" class="footer-back" aria-label="Back to top">
+        Back to top
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M8 13V3M4 7l4-4 4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- =============================================
+       PROJECT DETAIL DRAWER
+  ============================================= -->
+  <div id="project-overlay" class="proj-overlay" role="dialog"
+       aria-modal="true" aria-label="Project details" aria-hidden="true">
+
+    <div class="proj-backdrop" id="proj-backdrop"></div>
+
+    <div class="proj-panel" id="proj-panel">
+      <!-- Panel top bar -->
+      <div class="proj-panel-header">
+        <button class="proj-panel-back" id="proj-back-btn" aria-label="Close and go back">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M13 8H3M7 4l-4 4 4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back to projects
+        </button>
+        <button class="proj-close-btn" id="proj-close-btn" aria-label="Close project details">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6"  x2="6"  y2="18"/>
+            <line x1="6"  y1="6"  x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Scrollable content — filled by JS -->
+      <div class="proj-panel-scroll">
+        <div id="proj-content"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- =============================================
+       SCRIPTS (synchronous — DOM is ready here)
+  ============================================= -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
