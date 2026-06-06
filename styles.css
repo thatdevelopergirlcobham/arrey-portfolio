@@ -435,50 +435,78 @@ button { font-family: inherit; }
 
 /* ── Contact Form ── */
 .contact-form {
-  max-width: 640px; margin: 0 auto 3rem;
-  display: flex; flex-direction: column; gap: 1.25rem;
+  max-width: 640px; margin: 0 auto 3.5rem;
+  display: flex; flex-direction: column; gap: 1.4rem;
   text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: clamp(1.75rem, 5vw, 2.75rem);
+  opacity: 0; transform: translateY(28px);
 }
 
-.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
 
 .cf-group { display: flex; flex-direction: column; gap: 0.45rem; }
 
 .cf-label {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--text-soft);
+  color: var(--text-soft); transition: color 0.2s;
 }
+.cf-group:focus-within .cf-label { color: var(--accent); }
 
 .cf-input {
-  width: 100%; background: var(--surface);
+  width: 100%; background: var(--bg);
   border: 1px solid var(--border); border-radius: var(--r-sm);
   padding: 0.85rem 1.1rem; font-family: 'Inter', sans-serif;
   font-size: 0.9rem; color: var(--text);
-  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
   outline: none; resize: none;
 }
-.cf-input::placeholder { color: var(--text-soft); }
+.cf-input::placeholder { color: var(--text-soft); opacity: 0.6; }
 .cf-input:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-dim);
-  background: var(--surface-hover);
 }
+.cf-input.cf-error {
+  border-color: #ff5f57;
+  box-shadow: 0 0 0 3px rgba(255,95,87,0.15);
+}
+.cf-input.cf-valid { border-color: var(--accent); }
+
+.cf-error-msg {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem; letter-spacing: 0.06em;
+  color: #ff5f57; margin-top: 0.2rem;
+  display: none;
+}
+.cf-error-msg.visible { display: block; }
 
 .cf-textarea { min-height: 130px; }
 
+.cf-footer { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+
 .cf-submit {
-  align-self: flex-start; display: inline-flex; align-items: center; gap: 0.5rem;
+  display: inline-flex; align-items: center; gap: 0.5rem;
   background: var(--accent); color: #000; font-weight: 600;
   font-size: 0.9rem; padding: 0.85rem 2rem; border-radius: 50px;
   border: none; cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s;
+  white-space: nowrap;
 }
 .cf-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 28px var(--accent-glow); }
+.cf-submit:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
 
 .cf-success {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
-  color: var(--accent); letter-spacing: 0.06em; margin-top: 0.25rem;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+  color: var(--accent); letter-spacing: 0.06em;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.cf-success::before {
+  content: ''; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent); flex-shrink: 0;
+  animation: dotBlink 1.6s ease-in-out infinite;
 }
 
 @media (max-width: 580px) {

@@ -535,3 +535,123 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && document.getElementById('project-overlay').classList.contains('open'))
     closeDrawer();
 });
+
+/* =============================================
+   CONTACT FORM — scroll reveal + validation
+============================================= */
+
+/* Reveal the form on scroll */
+gsap.to('#contact-form', {
+  opacity: 1, y: 0, duration: 0.75, ease: 'power3.out',
+  scrollTrigger: { trigger: '#contact-form', start: 'top 88%' }
+});
+
+/* ── helpers ── */
+function setError(inputEl, errEl, msg) {
+  inputEl.classList.add('cf-error');
+  inputEl.classList.remove('cf-valid');
+  errEl.textContent = msg;
+  errEl.classList.add('visible');
+  gsap.fromTo(inputEl, { x: -5 }, { x: 0, duration: 0.35, ease: 'elastic.out(1, 0.4)' });
+}
+
+function setValid(inputEl, errEl) {
+  inputEl.classList.remove('cf-error');
+  inputEl.classList.add('cf-valid');
+  errEl.classList.remove('visible');
+}
+
+function clearState(inputEl, errEl) {
+  inputEl.classList.remove('cf-error', 'cf-valid');
+  errEl.classList.remove('visible');
+}
+
+/* ── live validation (on blur) ── */
+const cfName  = document.getElementById('cf-name');
+const cfEmail = document.getElementById('cf-email');
+const cfPhone = document.getElementById('cf-phone');
+const cfMsg   = document.getElementById('cf-message');
+
+const cfNameErr  = document.getElementById('cf-name-err');
+const cfEmailErr = document.getElementById('cf-email-err');
+const cfPhoneErr = document.getElementById('cf-phone-err');
+const cfMsgErr   = document.getElementById('cf-msg-err');
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const PHONE_RE = /^[\d\s\+\-\(\)]{7,20}$/;
+
+cfName.addEventListener('blur', () => {
+  if (!cfName.value.trim()) setError(cfName, cfNameErr, 'Please enter your name.');
+  else setValid(cfName, cfNameErr);
+});
+
+cfEmail.addEventListener('blur', () => {
+  if (!cfEmail.value.trim()) setError(cfEmail, cfEmailErr, 'Email is required.');
+  else if (!EMAIL_RE.test(cfEmail.value.trim())) setError(cfEmail, cfEmailErr, 'Please enter a valid email.');
+  else setValid(cfEmail, cfEmailErr);
+});
+
+cfPhone.addEventListener('blur', () => {
+  const val = cfPhone.value.trim();
+  if (val && !PHONE_RE.test(val)) setError(cfPhone, cfPhoneErr, 'Phone number looks invalid.');
+  else if (val) setValid(cfPhone, cfPhoneErr);
+  else clearState(cfPhone, cfPhoneErr);
+});
+
+cfMsg.addEventListener('blur', () => {
+  if (!cfMsg.value.trim()) setError(cfMsg, cfMsgErr, 'Please write a message.');
+  else if (cfMsg.value.trim().length < 10) setError(cfMsg, cfMsgErr, 'Message is too short.');
+  else setValid(cfMsg, cfMsgErr);
+});
+
+/* ── submit ── */
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  /* run all field checks */
+  let valid = true;
+
+  if (!cfName.value.trim()) {
+    setError(cfName, cfNameErr, 'Please enter your name.'); valid = false;
+  } else setValid(cfName, cfNameErr);
+
+  if (!cfEmail.value.trim()) {
+    setError(cfEmail, cfEmailErr, 'Email is required.'); valid = false;
+  } else if (!EMAIL_RE.test(cfEmail.value.trim())) {
+    setError(cfEmail, cfEmailErr, 'Please enter a valid email.'); valid = false;
+  } else setValid(cfEmail, cfEmailErr);
+
+  const phoneVal = cfPhone.value.trim();
+  if (phoneVal && !PHONE_RE.test(phoneVal)) {
+    setError(cfPhone, cfPhoneErr, 'Phone number looks invalid.'); valid = false;
+  } else if (phoneVal) setValid(cfPhone, cfPhoneErr);
+  else clearState(cfPhone, cfPhoneErr);
+
+  if (!cfMsg.value.trim()) {
+    setError(cfMsg, cfMsgErr, 'Please write a message.'); valid = false;
+  } else if (cfMsg.value.trim().length < 10) {
+    setError(cfMsg, cfMsgErr, 'Message is too short.'); valid = false;
+  } else setValid(cfMsg, cfMsgErr);
+
+  if (!valid) return;
+
+  /* success state */
+  const btn     = document.getElementById('cf-submit-btn');
+  const success = document.getElementById('cf-success');
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  /* simulate async send */
+  setTimeout(() => {
+    this.reset();
+    [cfName, cfEmail, cfPhone, cfMsg].forEach(el => el.classList.remove('cf-valid'));
+    btn.disabled = false;
+    btn.innerHTML = `Send Message <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    success.hidden = false;
+    gsap.fromTo(success, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' });
+    setTimeout(() => {
+      gsap.to(success, { opacity: 0, y: -6, duration: 0.35, onComplete: () => { success.hidden = true; } });
+    }, 5000);
+  }, 900);
+});

@@ -534,27 +534,33 @@
           <div class="cf-group">
             <label class="cf-label" for="cf-name">Name</label>
             <input class="cf-input" type="text" id="cf-name" name="name" placeholder="Your name" autocomplete="name" required />
+            <span class="cf-error-msg" id="cf-name-err">Please enter your name.</span>
           </div>
           <div class="cf-group">
             <label class="cf-label" for="cf-email">Email</label>
             <input class="cf-input" type="email" id="cf-email" name="email" placeholder="your@email.com" autocomplete="email" required />
+            <span class="cf-error-msg" id="cf-email-err">Please enter a valid email.</span>
           </div>
         </div>
         <div class="cf-group">
           <label class="cf-label" for="cf-phone">Phone Number</label>
           <input class="cf-input" type="tel" id="cf-phone" name="phone" placeholder="+1 234 567 8900" autocomplete="tel" />
+          <span class="cf-error-msg" id="cf-phone-err">Phone number looks invalid.</span>
         </div>
         <div class="cf-group">
           <label class="cf-label" for="cf-message">Message</label>
           <textarea class="cf-input cf-textarea" id="cf-message" name="message" placeholder="Tell me about your project..." rows="5" required></textarea>
+          <span class="cf-error-msg" id="cf-msg-err">Please write a message.</span>
         </div>
-        <button type="submit" class="cf-submit">
-          Send Message
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <p class="cf-success" id="cf-success" aria-live="polite" hidden>Message sent — I'll get back to you soon.</p>
+        <div class="cf-footer">
+          <button type="submit" class="cf-submit" id="cf-submit-btn">
+            Send Message
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <p class="cf-success" id="cf-success" aria-live="polite" hidden>Message sent — I'll get back to you soon.</p>
+        </div>
       </form>
 
       <div class="social-icons" id="social-icons">
@@ -631,16 +637,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
-  <script>
-    // Contact form — simple submit handler
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const success = document.getElementById('cf-success');
-      success.hidden = false;
-      this.reset();
-      setTimeout(() => { success.hidden = true; }, 5000);
-    });
-  </script>
 
 </body>
 </html>
