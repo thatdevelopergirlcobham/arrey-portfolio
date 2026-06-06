@@ -528,6 +528,35 @@
           godswill@example.com
         </a>
       </div>
+      <!-- Contact Form -->
+      <form class="contact-form" id="contact-form" novalidate aria-label="Contact form">
+        <div class="cf-row">
+          <div class="cf-group">
+            <label class="cf-label" for="cf-name">Name</label>
+            <input class="cf-input" type="text" id="cf-name" name="name" placeholder="Your name" autocomplete="name" required />
+          </div>
+          <div class="cf-group">
+            <label class="cf-label" for="cf-email">Email</label>
+            <input class="cf-input" type="email" id="cf-email" name="email" placeholder="your@email.com" autocomplete="email" required />
+          </div>
+        </div>
+        <div class="cf-group">
+          <label class="cf-label" for="cf-phone">Phone Number</label>
+          <input class="cf-input" type="tel" id="cf-phone" name="phone" placeholder="+1 234 567 8900" autocomplete="tel" />
+        </div>
+        <div class="cf-group">
+          <label class="cf-label" for="cf-message">Message</label>
+          <textarea class="cf-input cf-textarea" id="cf-message" name="message" placeholder="Tell me about your project..." rows="5" required></textarea>
+        </div>
+        <button type="submit" class="cf-submit">
+          Send Message
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <p class="cf-success" id="cf-success" aria-live="polite" hidden>Message sent — I'll get back to you soon.</p>
+      </form>
+
       <div class="social-icons" id="social-icons">
         <a href="#" class="social-icon" aria-label="GitHub profile" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
@@ -602,6 +631,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
+  <script>
+    // Contact form — simple submit handler
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const success = document.getElementById('cf-success');
+      success.hidden = false;
+      this.reset();
+      setTimeout(() => { success.hidden = true; }, 5000);
+    });
+  </script>
 
 </body>
 </html>
