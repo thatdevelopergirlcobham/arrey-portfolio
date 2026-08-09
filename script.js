@@ -2,9 +2,7 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* =============================================
-   THEME — init before first paint
-============================================= */
+
 (function initTheme() {
   const saved = localStorage.getItem('ag-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', saved);
